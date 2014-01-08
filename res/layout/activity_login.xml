@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal|center_vertical"
+    tools:context=".MatchingActivity" 
+    android:gravity="center_vertical|center_horizontal"
+   
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_login" 
+        android:background="@drawable/logo_login"
+        android:layout_margin="20sp"
+        />
+       <LinearLayout 
+           android:layout_width="100sp"
+       	   android:layout_height="wrap_content"
+       	   android:orientation="vertical"
+           >
+           <EditText
+            android:id="@+id/edit_email"
+            android:layout_width="fill_parent"
+       	 	android:layout_height="20sp"
+       	 	android:inputType="textEmailAddress"
+       	 	android:textColor="#000000"
+       	 	android:hint="Email"
+       	 	android:text="phannguyen@gmail.com"
+       	 	android:background="@drawable/rounded_ed"
+       	 	android:layout_margin="5px"
+       	 	android:textSize="7sp"
+            />
+        <EditText 
+            android:id="@+id/edit_password"
+            android:layout_width="fill_parent"
+       	 	android:layout_height="20sp"
+       	 	android:inputType="textPassword"
+       	 	android:textColor="#000000"
+       	 	android:hint="password"
+       	 	android:text="123456"
+       	 	android:background="@drawable/rounded_ed"
+       	 	android:layout_margin="5px"
+       	 	android:textSize="7sp"
+            />
+         <Button
+	        android:id="@+id/btn_login"
+	        android:layout_width="fill_parent"
+	       	android:layout_height="20sp"
+	       	android:text="@string/title_login"
+	       	android:textColor="#000000"
+	       	android:onClick="on_login"
+	       	android:layout_margin="5px"
+	       	android:background="@drawable/rounded_bt"
+	       	android:textSize="7sp"
+	        />
+         <Button
+            
+	        android:id="@+id/btn_login"
+	        android:layout_width="fill_parent"
+	       	android:layout_height="20sp"
+	       	android:text="@string/txt_facebook"
+	       	android:textColor="#ffffff"
+	       	
+	       	android:onClick="on_login"
+	       	android:layout_margin="5px"
+	       	android:background="@drawable/rounded_bt_facebook"
+	       	android:textSize="7sp"
+	       	
+	        />
+       </LinearLayout>
+        
+    	<LinearLayout 
+    	    android:layout_width="wrap_content"
+	       	android:layout_height="wrap_content"
+	       	android:layout_marginTop="50sp"
+    	    >
+    	    <TextView 
+    	        android:layout_width="wrap_content"
+	       		android:layout_height="wrap_content"
+	       		android:text="create an account"
+    	        />
+    	    
+    	    <Button
+	        android:id="@+id/btn_login"
+	        android:layout_width="fill_parent"
+	       	android:layout_height="20sp"
+	       	android:text="@string/title_register"
+	       	android:textColor="#000000"
+	       	android:onClick="on_register"
+	       	android:layout_margin="5px"
+	       	android:background="@drawable/rounded_bt"
+	       	android:textSize="7sp"
+	        />
+    	   
+    	</LinearLayout>
+</LinearLayout>

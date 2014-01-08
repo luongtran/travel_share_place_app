@@ -1,0 +1,100 @@
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    tools:context=".MatchingActivity" 
+    
+    >
+	<ImageView
+	    android:id="@+id/profile_edit_image_id"
+	    android:layout_width="match_parent"
+    	android:layout_height="120dp"
+    	android:onClick="on_image_edit_profile"
+	    />
+	
+	<LinearLayout
+	    android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+   		android:orientation="vertical"
+   		android:gravity="center_vertical"
+   		android:layout_margin="5dp"
+	    >
+	    <TextView
+	        android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:textColor="#a1a0a2"
+    		android:text="@string/profile_name"
+    		android:layout_margin="5dp"
+	        />
+	    <View
+		   android:layout_width="fill_parent"
+		   android:layout_height="1dp"       
+		   android:background="#a1a0a2" />
+	     <EditText
+	        android:id="@+id/profile_edit_name_id"
+	        android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:textColor="#000000"
+    		android:text=""
+	        />
+	     
+	    <TextView
+	        android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:textColor="#a1a0a2"
+    		android:text="@string/profile_email"
+    		android:layout_margin="5dp"
+	        />
+	    
+	    <View
+		   android:layout_width="fill_parent"
+		   android:layout_height="1dp"      
+		   android:background="#a1a0a2" />
+	     <TextView
+	        android:id="@+id/profile_edit_email_id"
+	        android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:textColor="#000000"
+    		android:text=""
+	        />
+	    
+	    <TextView
+	        android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:textColor="#a1a0a2"
+    		android:text="@string/profile_address"
+    		android:layout_margin="5dp"
+	        />
+	    
+	    <View
+		   android:layout_width="fill_parent"
+		   android:layout_height="1dp"
+		   android:background="#a1a0a2" />
+	    
+	     <EditText
+	        android:id="@+id/profile_edit_address_id"
+	        android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:textColor="#000000"
+    		android:text=""
+	        />
+	     
+	     <Button
+	        android:id="@+id/btn_edit_profile"
+	        android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:onClick="on_save_profile"
+    		android:text="@string/btn_save_profile"
+    		android:background="@drawable/rounded_bt"
+	         />
+	</LinearLayout>
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,38 @@
+
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:background="@drawable/rounded_lv"
+    >
+
+	    <ImageView 
+	        android:id="@+id/img_avarta_place"
+        	android:background="@drawable/ash_arrow"
+        	android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:scaleType="centerCrop"
+	        />
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="vertical"
+	        >
+	        
+		      <TextView
+		        android:id="@+id/tv_name_place"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Name"
+		        />
+	         <TextView
+		        android:id="@+id/tv_address_place"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Address"
+	        />
+	        
+	    </LinearLayout>
+</LinearLayout>
