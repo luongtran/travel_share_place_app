@@ -1,0 +1,55 @@
+
+    
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_comment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".MatchingActivity" >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center_horizontal"
+        >
+	    <ImageView 
+	        android:id="@+id/tv_comment_place"
+	        android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:background="@drawable/logo_comment"
+	        />
+    </LinearLayout>
+    
+	<ListView
+	    android:id="@+id/lv_comments_place"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:dividerHeight="3dip"
+	    >
+	</ListView>
+	
+	<EditText 
+	    android:id="@+id/ed_comment"
+	    android:layout_width="fill_parent"
+	    android:layout_height="50dip"
+	    android:textSize="10dip"
+	    />
+	
+	<Button 
+	    android:layout_width="wrap_content"
+	    android:layout_height="15dip"
+	    android:background="@drawable/rounded_bt_facebook"
+	    android:text="@string/btn_comment"
+	    android:textSize="6dip"
+	    android:textColor="#ffffff"
+	    android:onClick="on_comment"
+	    />
+	
+</LinearLayout>

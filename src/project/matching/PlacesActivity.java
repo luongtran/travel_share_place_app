@@ -79,7 +79,7 @@ public class PlacesActivity extends Activity implements ConnectServer,OnItemSele
 				init();
 				
 				loadListPlace(getListPlaces(result));
-				Log.i("réu",""+result);
+				//Log.i("réu",""+result);
 			};
 		}.execute(path);
 	}

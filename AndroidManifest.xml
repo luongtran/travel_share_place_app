@@ -35,6 +35,22 @@
  			android:name="project.matching.EditProfileActivity"
  			android:label="@string/edit_profile" >
  		</activity>
+ 		<activity
+ 			android:name="project.matching.DetailPlaceActivity"
+ 			android:label="@string/detail_place" >
+ 		</activity>
+ 		<activity
+ 			android:name="project.matching.PhimActivity"
+ 			android:label="@string/detail_place" >
+ 		</activity>
+ 		<activity
+ 			android:name="project.matching.LevelActivity"
+ 			android:label="@string/detail_place" >
+ 		</activity>
+ 		<activity
+ 			android:name="project.matching.CollectionDemoActivity"
+ 			android:label="@string/detail_place" >
+ 		</activity>
     </application>
     
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>

@@ -1,5 +1,4 @@
 package project.matching;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -42,9 +41,8 @@ import android.widget.Toast;
 public class ProfileActivity extends Activity implements ConnectServer{
 	EditText ed_email,ed_password;
 	private String path,email,password;
-	
 	public static int login;
-	private String ab;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

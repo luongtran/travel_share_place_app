@@ -136,15 +136,15 @@ public class MainActivity extends Activity {
         // Handle action buttons
         switch(item.getItemId()) {
         case R.id.action_websearch:
-            // create intent to perform web search for this planet
+           /* // create intent to perform web search for this planet
             Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-            intent.putExtra(SearchManager.QUERY, getActionBar().getTitle());
+           // intent.putExtra(SearchManager.QUERY, getActionBar().getTitle());
             // catch event that there's no activity to handle intent
             if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivity(intent);
             } else {
                 Toast.makeText(this, R.string.app_not_available, Toast.LENGTH_LONG).show();
-            }
+            }*/
             
             return true;
         default:
@@ -227,7 +227,7 @@ public class MainActivity extends Activity {
 			protected void onPostExecute(String result) {
 				// TODO Auto-generated method stub
 				super.onPostExecute(result);
-				Log.i("result",""+result);
+				//Log.i("result",""+result);
 				if(result.equals("0")){
 					//setLogin(1);
 					Toast.makeText(getApplicationContext(),"Accout not valid", Toast.LENGTH_SHORT).show();
@@ -253,7 +253,7 @@ public class MainActivity extends Activity {
 	}
     //function edit profile 
     public void on_edit_profile(View v){
-    	Log.i("click_edit","ok");
+    	//Log.i("click_edit","ok");
     	Intent intent=new Intent(getBaseContext(), EditProfileActivity.class);
     	startActivity(intent);
     }

@@ -66,7 +66,7 @@ public class Place_Adapter extends ArrayAdapter<Places>{
         if(row == null)
         {
             LayoutInflater inflater = context.getLayoutInflater();
-            row = inflater.inflate(R.layout.place, parent, false);
+            row = inflater.inflate(R.layout.place_adapter, parent, false);
         }
         Places item = data.get(position);
         //String test = item.getPlace_name();
@@ -76,7 +76,7 @@ public class Place_Adapter extends ArrayAdapter<Places>{
             tv_placeName = (TextView) row.findViewById(R.id.tv_name_place);
             tv_placeAddress=(TextView)row.findViewById(R.id.tv_address_place);
             img_avarta=(ImageView)row.findViewById(R.id.img_avarta_place);
-            if(tv_placeName != null && tv_placeAddress!=null){
+          //  if(tv_placeName != null && tv_placeAddress!=null){
             	String path=ConnectServer.ADDRESS_LOCALHOST+item.getAvarta();
             	tv_placeName.setText(item.getPlace_name());
             	tv_placeAddress.setText(item.getAddress());
@@ -99,7 +99,7 @@ public class Place_Adapter extends ArrayAdapter<Places>{
              //Log.d("find me ", cityname.toString());
             }
 
-        }
+       // }
 
         return row;
     }

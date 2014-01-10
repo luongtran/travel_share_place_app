@@ -41,4 +41,15 @@
     <string name="btn_register">Register</string>
     <string name="register_sex">Sex</string>
     <string name="register_name">Name</string>
+    <string name="detail_place">Place</string>
+    
+    <string name="dummy_section_text">Section %1d is just a dummy section.</string>
+
+    <string name="demo_external_activity">Demo External Activity</string>
+    <string name="demo_collection">Demo Collection</string>
+    <string name="detail_place_name">Name</string>
+    <string name="detail_place_address">Address</string>
+    <string name="detail_place_mobile">Mobile</string>
+    <string name="btn_comment">Comment</string>
+    
 </resources>

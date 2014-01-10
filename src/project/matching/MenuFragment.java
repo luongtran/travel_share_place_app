@@ -23,6 +23,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.MailTo;
 import android.os.Bundle;
+import android.text.style.BulletSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +45,7 @@ public class MenuFragment extends Fragment implements OnClickListener{
     MainActivity mainActivity;
     View rootView;
     Activity activity;
-    String profile;
+    String profile,place;
     int id_place[];
     private JSONObject json_profile;
     
@@ -127,7 +128,7 @@ public class MenuFragment extends Fragment implements OnClickListener{
 						//load avarta
 						String url_img = ConnectServer.ADDRESS_LOCALHOST+json_profile.getString("avarta");
 						//requestImageAvarta(json_profile);
-						Log.i("url",""+url_img);
+						//Log.i("url",""+url_img);
 						ImageLoader imageLoader=new ImageLoader(getActivity().getApplicationContext());
 						imageLoader.DisplayImage(url_img,((ImageView)rootView.findViewById(R.id.profile_image_id)));
 						
@@ -165,6 +166,8 @@ public class MenuFragment extends Fragment implements OnClickListener{
 		String path=ConnectServer.ADDRESS_LOCALHOST+"/places/getallplace";
 		new RequestHTTPGet(){
 			protected void onPostExecute(String result) {
+				place=result;
+				//Log.i("place",""+place);
 				loadListPlace(getListPlaces(result));
 			};
 		}.execute(path);
@@ -186,11 +189,17 @@ public class MenuFragment extends Fragment implements OnClickListener{
 	 private class ListViewItemPlaceClickListener implements ListView.OnItemClickListener{
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
 				// TODO Auto-generated method stub
-				Log.i("list place",""+id_place[arg2]);
+				//place="ac";
+				//Log.i("list place1",""+place);
+				Intent intent=new Intent(getActivity(),DetailPlaceActivity.class);
 				
+				intent.putExtra("list_place",place);
+				intent.putExtra("place_id",""+id_place[position]);
+				
+				startActivity(intent);
 			}
 	    	
 	    }
