@@ -5,6 +5,6 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:textSize="24sp"
-    android:padding="32dp" 
+    android:padding="32dp"
     android:text="maps"
     />

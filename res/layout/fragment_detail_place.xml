@@ -19,6 +19,13 @@
     	android:layout_height="120dp"
     	android:background="@drawable/restaurant"
 	    />
+	<RatingBar
+	    android:id="@+id/detail_place_rating"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:numStars="5"
+	    android:rating="0"
+	    />
 	<LinearLayout 
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
@@ -31,15 +38,33 @@
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/ic_add_favorite"
 	        android:layout_margin="5dip"
+	        android:onClick="on_btn_favorite"
 	        />
-	     <ImageButton 
+	    <LinearLayout 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:gravity="center_horizontal"
+	        >
+	        <ImageButton 
 	        android:id="@+id/btn_like_place"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/ic_like"
 	        android:layout_margin="5dip"
-	        
 	        />
+	     <TextView
+	         android:id="@+id/tv_numlike_place"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:text="0"
+	         android:textSize="8dip"
+	         android:textColor="#134812"
+	         android:textStyle="italic"
+	         />
+	        
+	    </LinearLayout>
+	     
 	     
 	       <ImageButton
 	        android:id="@+id/btn_edit_place"
@@ -75,7 +100,6 @@
 	        android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
     		android:textColor="#000000"
-    		android:text="a"
 	        />
 	     
 	    <TextView
@@ -115,6 +139,45 @@
     		android:textColor="#000000"
     		android:text=""
 	        />
+	     
 	</LinearLayout>
+	 <TextView
+	        android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:textColor="#a1a0a2"
+    		android:text="@string/detail_place_comment"
+    		android:layout_margin="5dp"
+    		
+	        />
+	    <View
+		   android:layout_width="fill_parent"
+		   android:layout_height="1dp"       
+		   android:background="#a1a0a2" />
+	    
+	<EditText 
+	    android:id="@+id/ed_comment_place"
+	    android:layout_width="fill_parent"
+	    android:layout_height="30dip"
+	    android:textSize="12dip"
+	    android:hint="content"
+	    />
+	
+	<Button 
+	    android:layout_width="wrap_content"
+	    android:layout_height="30dip"
+	    android:textSize="10dip"
+	    android:textColor="#ffffff"
+	    android:text="@string/btn_comment"
+	    android:onClick="on_comment"
+	    android:background="@drawable/rounded_bt_facebook"
+	    />
+	
+	<ListView 
+	    android:id="@+id/lv_comments"
+	    android:layout_width="fill_parent"
+	    android:layout_height="100dip"
+	    >
+	    
+	</ListView>
 </LinearLayout>
 </ScrollView>

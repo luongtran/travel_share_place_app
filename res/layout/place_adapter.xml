@@ -6,7 +6,6 @@
     android:orientation="horizontal" 
     android:background="@drawable/rounded_lv"
     >
-
 	    <ImageView 
 	        android:id="@+id/img_avarta_place"
         	android:background="@drawable/ash_arrow"
@@ -33,6 +32,5 @@
 		        android:layout_height="wrap_content"
 		        android:text="Address"
 	        />
-	        
 	    </LinearLayout>
 </LinearLayout>

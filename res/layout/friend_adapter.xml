@@ -1,0 +1,59 @@
+
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:background="@drawable/rounded_lv"
+    >
+
+	    <ImageView
+	        android:id="@+id/img_avarta_user"
+        	android:background="@drawable/ash_arrow"
+        	android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:scaleType="centerCrop"
+	        />
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:orientation="vertical"
+        	android:layout_marginLeft="3dip"
+	        >
+	        
+		      <TextView
+		        android:id="@+id/tv_name_user"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Name"
+		        android:textStyle="bold"
+		        />
+		      
+	         <TextView
+		        android:id="@+id/tv_status_user"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textSize="8dip"
+		        android:text="address"
+		        android:textStyle="italic"
+	        />
+	         
+	         
+	    </LinearLayout>
+	    
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="right"
+	        android:layout_gravity="center"
+	        >
+	        <ImageButton
+	            android:id="@+id/btn_detail_friend" 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/ic_detail"
+	            />
+	        
+	    </LinearLayout>
+	    
+</LinearLayout>

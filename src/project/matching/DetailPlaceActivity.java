@@ -7,10 +7,11 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import matching.classmain.CommentPlace_Addapter;
+import matching.classmain.CommentsPlace;
 import matching.classmain.Places;
 import matching.classmain.RequestHTTPGet;
 import matching.classmain.RequestHTTPPost;
-import matching.detailplace.CommentPlaceFragment;
 import matching.detailplace.DetailPlaceFragment;
 import matching.detailplace.ImagePlaceFragment;
 import matching.detailplace.MapPlaceFragment;
@@ -25,6 +26,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.example.matching.R;
@@ -41,6 +43,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import android.app.ActionBar;
@@ -61,9 +64,7 @@ import android.widget.TextView;
 
 public class DetailPlaceActivity extends FragmentActivity implements ActionBar.TabListener {
 
-    
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
-    private CommentPlaceFragment commentPlaceFragment;
     String json_place;
     String id_place;
     ViewPager mViewPager;
@@ -79,7 +80,7 @@ public class DetailPlaceActivity extends FragmentActivity implements ActionBar.T
         json_place=bundle.getString("list_place");
         id_place=bundle.getString("place_id");
         //init
-        ed_comment=(EditText)findViewById(R.id.ed_comment);
+        ed_comment=(EditText)findViewById(R.id.ed_comment_place);
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
         mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager(),json_place,id_place);
@@ -89,7 +90,7 @@ public class DetailPlaceActivity extends FragmentActivity implements ActionBar.T
         // Specify that the Home/Up button should not be enabled, since there is no hierarchical
         // parent.
         
-        actionBar.setHomeButtonEnabled(false);
+       // actionBar.setHomeButtonEnabled(false);
 
         // Specify that we will be displaying tabs in the action bar.
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -169,11 +170,7 @@ public class DetailPlaceActivity extends FragmentActivity implements ActionBar.T
                 	//Log.i("comments","abc2");
                 	imagePlaceFragment.transfer_data(json_place,place_id);
                     return imagePlaceFragment;
-                case 2:
-                	CommentPlaceFragment commentPlaceFragment=new CommentPlaceFragment();
-                	commentPlaceFragment.transfer_data(json_place,place_id);
-                	//Log.i("comments","abc");
-                    return commentPlaceFragment;
+               
                 default:
                 	//Log.i("comments","abc3");
                 	MapPlaceFragment mapPlaceFragment=new MapPlaceFragment();
@@ -184,7 +181,7 @@ public class DetailPlaceActivity extends FragmentActivity implements ActionBar.T
         // number tab
         @Override
         public int getCount() {
-            return 4;
+            return 3;
         }
         // get name tab
         @Override
@@ -194,8 +191,6 @@ public class DetailPlaceActivity extends FragmentActivity implements ActionBar.T
         	}
         	if(position==1)
         		return "Images";
-        	if(position==2)
-        		return "Comment";
         	return "Map";
         }
     }
@@ -256,25 +251,27 @@ public class DetailPlaceActivity extends FragmentActivity implements ActionBar.T
     		getToast("not logged in");
     	}else
     	{
-    		
     		int id_user=MainActivity.id_user;
     		//String id_place=id_place;
-    		ed_comment=(EditText)findViewById(R.id.ed_comment);
+    		ed_comment=(EditText)findViewById(R.id.ed_comment_place);
     		String message=ed_comment.getText().toString();
     		String path=ConnectServer.ADDRESS_LOCALHOST+"/PlaceComments/saveComment?place_id="+id_place+"&user_id="+id_user+"&message="+message;
     		new RequestHTTPGet(){
     			protected void onPostExecute(String result) {
-    				Log.i("result_comment",""+result);
+    				//Log.i("result_comment",""+result);
     				if(result.equals("1")){
     					ed_comment.setText("");
     					//back detail place
-    					mViewPager.setCurrentItem(0);
+    					//mViewPager.setCurrentItem(0);
+    					//DetailPlaceFragment detailPlaceFragment=new DetailPlaceFragment();
+    					//detailPlaceFragment.abc();
     				}
     			};
     		}.execute(path);
     	}
     	
     }
+   
     public void getToast(String message){
     	Toast.makeText(getApplicationContext(), ""+message, Toast.LENGTH_SHORT).show();
     }

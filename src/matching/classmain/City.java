@@ -8,11 +8,6 @@ import android.widget.TextView;
 
 public class City {
 
-	/**
-	 * @param args
-	 */
-	//TextView tvTextView;
-	//LoginActivity login;
 	private int id;
 	private String city_name;
 	public City(String city_name) {

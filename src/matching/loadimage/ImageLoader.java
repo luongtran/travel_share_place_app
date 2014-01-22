@@ -14,6 +14,8 @@ import java.util.WeakHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import matching.roundimageview.RoundedImageView;
+
 import com.example.matching.R;
  
  
@@ -25,12 +27,11 @@ import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
  
 public class ImageLoader {
-     
+    
     // Initialize MemoryCache
     MemoryCache memoryCache = new MemoryCache();
-     
     FileCache fileCache;
-     
+    
     //Create Map (collection) to store image and image url in key value pair
     private Map<ImageView, String> imageViews = Collections.synchronizedMap(
                                            new WeakHashMap<ImageView, String>());
@@ -40,12 +41,12 @@ public class ImageLoader {
     Handler handler = new Handler();
      
     public ImageLoader(Context context){
-         
+        
         fileCache = new FileCache(context);
          
         // Creates a thread pool that reuses a fixed number of 
         // threads operating off a shared unbounded queue.
-        executorService=Executors.newFixedThreadPool(5);
+        executorService=Executors.newFixedThreadPool(15);
          
     }
      
@@ -59,22 +60,25 @@ public class ImageLoader {
          
         //Check image is stored in MemoryCache Map or not (see MemoryCache.java)
         Bitmap bitmap = memoryCache.get(url);
-         
         if(bitmap!=null){
             // if image is stored in MemoryCache Map then
             // Show image in listview row
         	//BitmapDrawable bd=new BitmapDrawable(bitmap);
-        	//imageView.setBackgroundDrawable(bd);
+        	//imageView.setBackground(bd);
         	
-            imageView.setImageBitmap(bitmap);
+        	
+        	BitmapDrawable bitmapDrawable=new BitmapDrawable(bitmap);
+            imageView.setBackgroundDrawable(bitmapDrawable);
+            //imageView.setImageBitmap(bitmap);
         }
         else
         {
             //queue Photo to download from url
             queuePhoto(url, imageView);
-            
             //Before downloading image show default image 
-            imageView.setImageResource(stub_id);
+            BitmapDrawable bitmapDrawable=new BitmapDrawable(bitmap);
+            imageView.setBackgroundDrawable(bitmapDrawable);
+            //imageView.setImageResource(stub_id);
         }
     }
          
@@ -82,14 +86,14 @@ public class ImageLoader {
     {
         // Store image and url in PhotoToLoad object
         PhotoToLoad p = new PhotoToLoad(url, imageView);
-         
+        
         // pass PhotoToLoad object to PhotosLoader runnable class
         // and submit PhotosLoader runnable to executers to run runnable
         // Submits a PhotosLoader runnable task for execution  
          
         executorService.submit(new PhotosLoader(p));
     }
-     
+    
     //Task for the queue
     private class PhotoToLoad
     {
@@ -119,7 +123,7 @@ public class ImageLoader {
                  
                 // set image data in Memory Cache
                 memoryCache.put(photoToLoad.url, bmp);
-                 
+                
                 if(imageViewReused(photoToLoad))
                     return;
                  
@@ -139,6 +143,7 @@ public class ImageLoader {
      
     private Bitmap getBitmap(String url) 
     {
+    	
         File f=fileCache.getFile(url);
          
         //from SD cache

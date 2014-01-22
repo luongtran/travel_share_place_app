@@ -165,14 +165,12 @@ messageText.setText("Uploading file path :- '/mnt/sdcard/Pictures"+uploadFileNam
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
-
 	    switch(requestCode) {
 	    case SELECT_PHOTO:
-	        if(resultCode == RESULT_OK){  
+	        if(resultCode == RESULT_OK){ 
 	            Uri selectedImage = data.getData();
-	            
 	            Log.i("select image",""+data.getData().getPath());
-				try {
+				try { 
 					imageStream = getContentResolver().openInputStream(selectedImage);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
